@@ -1,0 +1,195 @@
+
+
+{% extends 'template_base.html' %}
+
+{% load static %}
+{% block Titre %} Page RNA {% endblock %}
+
+{% load static %}
+<img src="{% static '"C:/Users/pret/Desktop/RNA/Redoublement/static/icons/mage.jpg"' %}" alt="My image">
+
+{% block stylesheets %}
+<style>
+    td {
+        border: 1px solid black !important;
+        max-height: 20px;overflow: hidden; white-space: nowrap; text-overflow: ellipsis;transition: max-height 0.5s;
+    }
+
+    td:hover {
+        max-height: none; /* Hauteur lors du survol */
+    }
+    a {
+        text-decoration: none; /* Suppression du soulignement par défaut */
+        padding: 20px 40px; /* Augmentation de la taille des liens */
+        display: inline-block;
+        margin-right: 30px; /* Espacement entre les onglets */
+        
+        background-size: cover;
+        color: #00529100; /* Couleur du texte */
+        border: none; /* Aucune bordure */
+        border-radius: 5px; /* Coins arrondis */
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+    }
+    /* Styles spécifiques au lien "Accueil" sur la page RNA */
+.custom-home-link {
+    color: #FF0000; /* Couleur du texte différente (rouge dans cet exemple) */
+    /* Autres styles personnalisés */
+}
+
+    
+
+    
+</style>
+{% endblock %}
+
+
+
+{% block contenu %}
+
+</h1>
+<table class="table-bordered" style="border: 1px black solid; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th style = "border: 1px solid black !important">Numero Etudiant</th>
+            <!-- <th style = "border: 1px solid black !important">Sexe</th> -->
+            <!-- <th style = "border: 1px solid black !important">Code Nationalité</th> -->
+            <!-- <th style = "border: 1px solid black !important">Continent</th> -->
+            <!-- <th style = "border: 1px solid black !important">Libellé Nationalité</th> -->
+            <!-- <th style = "border: 1px solid black !important">Bac ou équivalence</th> -->
+            <!-- <th style = "border: 1px solid black !important">Groupe de bac</th> -->
+            <th style = "border: 1px solid black !important">Série du bac</th>
+            <!-- <th style = "border: 1px solid black !important">Spécialité 1 du bac NBGE</th> -->
+            <!-- <th style = "border: 1px solid black !important">Mention au bac</th> -->
+            <!-- <th style = "border: 1px solid black !important">Code Etablissement de préparation du bac</th> -->
+            <!-- <th style = "border: 1px solid black !important">Code commune Lycée</th> -->
+            <!-- <th style = "border: 1px solid black !important">IPS du lycée</th> -->
+            <!-- <th style = "border: 1px solid black !important">Etudiant Oui ou Oui_si</th> -->
+            <!-- <th style = "border: 1px solid black !important">Situation année précédente</th> -->
+            <!-- <th style = "border: 1px solid black !important">Code commune de l'adresse fixe</th> -->
+            <!-- <th style = "border: 1px solid black !important">Code PCS du 1er parent</th> -->
+            <!-- <th style = "border: 1px solid black !important">Profession du 1er parent</th> -->
+            <!-- <th style = "border: 1px solid black !important">Code PCS du parent 2</th> -->
+            <!-- <th style = "border: 1px solid black !important">Profession du 2e parent</th> -->
+            <!-- <th style = "border: 1px solid black !important">Diplome Evry ou Saclay</th> -->
+            <!-- <th style = "border: 1px solid black !important">Diplome SISE type</th> -->
+            <!-- <th style = "border: 1px solid black !important">Diplome SISE Code</th> -->
+            <!-- <th style = "border: 1px solid black !important">Diplome SISE libellé</th> -->
+            <!-- <th style = "border: 1px solid black !important">Secteur Disciplinaire SISE code</th> -->
+            <!-- <th style = "border: 1px solid black !important">Secteur Disciplinaire SISE libellé</th> -->
+            <!-- <th style = "border: 1px solid black !important">Cursus LMD</th> -->
+            <!-- <th style = "border: 1px solid black !important">Niveau</th> -->
+            <!-- <th style = "border: 1px solid black !important">Type d'Etape</th> -->
+            <!-- <th style = "border: 1px solid black !important">Intitulé IAE étape</th> -->
+            <!-- <th style = "border: 1px solid black !important">Code IAE étape</th> -->
+            <!-- <th style = "border: 1px solid black !important">Niveau dans le diplome</th> -->
+            <!-- <th style = "border: 1px solid black !important">Composante</th> -->
+            <!-- <th style = "border: 1px solid black !important">Régime d'Inscription code</th> -->
+            <!-- <th style = "border: 1px solid black !important">Régime d'inscription libellé</th> -->
+            <!-- <th style = "border: 1px solid black !important">Boursier</th> -->
+            <!-- <th style = "border: 1px solid black !important">Année 1ère inscription dans l'établissement</th> -->
+            <!-- <th style = "border: 1px solid black !important">Année de dernière inscription dans l'établissement</th> -->
+            <th style = "border: 1px solid black !important">Note Session 1</th>
+            <th style = "border: 1px solid black !important">Résultat Session 1</th>
+            <th style = "border: 1px solid black !important">Note Session 2</th>
+            <th style = "border: 1px solid black !important">Résultat Session 2</th>
+            <th style = "border: 1px solid black !important">Prédiction RNA</th>
+            <th style = "border: 1px solid black !important">Probabilité de Prédiction RNA</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for element in donnees %}
+        <tr>
+            <td style = "border: 1px solid black !important">{{ element.IndividuCodeEtudiant }}</td>
+            <!-- <td style = "border: 1px solid black !important">{{ element.Individu_Sexe }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Nationalité_code }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Nationalite_continent }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Nationalité_libelle }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Bac_ou_quivalence }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Groupe_de_bac }}</td> -->
+            <td style = "border: 1px solid black !important">{{ element.Seriedubac }}</td>
+            <!-- <td style = "border: 1px solid black !important">{{ element.Specialite_1_du_bac_NBGE }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Bac_Mention }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Bac_Etablissement_préparation_code }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Code_commune_Lycee }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.IPS_du_lycee }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Etudiant_oui_ou_oui_si }}</td> -->
+            <!-- <td style = "border: 1px solid black !important; max-height: 20px;overflow: hidden; white-space: nowrap; text-overflow: ellipsis;transition: max-height 0.5s;">{{ element.Situation_annee_precedente }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Adresse_fixe_Commune_code }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.PCS_parent_code }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.PCS_parent_libelle }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.PCS_autre_parent_code }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Profession_du_parent_2 }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Diplôme_Evry_ou_Saclay }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Diplome_SISE_typ }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Discipline_SISE_code }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.DisciplineSISE_libelle }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Secteur_disciplinaire_SISE_code }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Secteur_disciplinaire_SISE_libelle }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Cursus_LMD }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Niveau }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Type_Etape }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.IAE_Etape_intitule }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.IAE_Etape_code}}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Niveau_dans_le_diplome }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Composante }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Regime_inscription_code }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Regime_inscription_libelle }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Boursier }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Annee_1ere_inscription_ }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Annee_de_derniere_inscription }}</td> -->
+            <!-- <td style = "border: 1px solid black !important">{{ element.Nombre_admis_VET }}</td> -->
+            <td style = "border: 1px solid black !important">{{ element.NoteSession1 }}</td>
+            <td style = "border: 1px solid black !important">{{ element.ResultatSession1 }}</td>
+            <td style = "border: 1px solid black !important">{{ element.NoteSession2 }}</td>
+            <td style = "border: 1px solid black !important">{{ element.ResultatSession2 }}</td>
+            <td style = "border: 1px solid black !important">{{ element.PredictionsRNA }}</td>
+            <td style = "border: 1px solid black !important">{{ element.ProbabiliteRNA }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div class="pagination" style="margin-top: 5px; width: fit-content;">
+    <div class="step-links" style="padding: 5px;">
+        {% if donnees.has_previous %}
+        <!-- <a href="?page=1"> &lt; </a> -->
+        <a href="?page={{ donnees.previous_page_number }}" style="text-decoration: none; padding: 5px; border: 1px solid black; border-radius: 4px;">
+
+            <img src="../../static/icons/back.png" alt="previous" style="width: 10px; height: 10px;">
+        </a>
+        {% endif %}
+        <a href="?page=1" style="text-decoration: none;">1</a>
+
+        <!-- <span class="current" style="padding: 5px;">
+            {{ donnees.number }} of {{ donnees.paginator.num_pages }}
+        </span> -->
+        {% if donnees.number == 1 or donnees.number == 2 %}
+        <a href="?page=2" style="text-decoration: none;" >2</a>
+        <span>...</span>        
+        {% elif donnees.number != donnees.paginator.num_pages and next_page != donnees.paginator.num_pages %}
+        <span>...</span>
+        <a href="?page={{previous_page}}" style="text-decoration: none;">{{previous_page}}</a>
+        <span style="width: 10px ; padding: 5px; border-radius: 5px; background-color:grey;">{{donnees.number}}</span>
+        <a href="?page={{next_page}}" style="text-decoration: none;">{{next_page}}</a>
+        <span>...</span>
+        {% elif next_page == donnees.paginator.num_pages %}
+        <span>...</span>
+        <a href="?page={{previous_page}}" style="text-decoration: none;">{{previous_page}}</a>
+        <span style="width: 10px; border: 1px solid black; padding: 5px;" >{{donnees.number}}</span>
+        {% endif %}
+
+        <a href="?page={{donnees.paginator.num_pages}}" style="text-decoration: none;">{{ donnees.paginator.num_pages }}</a>
+
+        {% if donnees.has_next %}
+        <a href="?page={{ donnees.next_page_number }}" style="text-decoration: none; border: 1px solid black;  padding: 5px; border-radius: 4px;">
+            <img src="../../static/icons/next.png" alt="next" style="width: 10px; height: 10px;" >
+        </a>
+        <!-- <a href="?page={{ donnees.paginator.num_pages }}">last &raquo;</a> -->
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock %}
+

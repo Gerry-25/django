@@ -1,0 +1,72 @@
+{% extends 'template_base.html' %}
+{% load static %}
+
+{% block Titre %} Page d'accueil {% endblock %}
+
+{% block contenu %}
+    <h1>Bienvenue</h1>
+    <style>
+        /* Styles CSS */
+        .image-container {
+            display: flex;
+        }
+
+        .image-background {
+            background-size: cover;
+            width: 250px;
+            height: 400px;
+            position: relative;
+            margin-right: 80px; /* Ajout de la marge entre les images */
+        }
+
+        .text-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            text-align: center;
+            line-height: 300px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 24px;
+        }
+
+        .image-background:hover .text-overlay {
+            opacity: 1;
+        }
+
+        /* opacité à zéro lorsque la souris quitte l'image */
+        .image-background:not(:hover) .text-overlay {
+            opacity: 0;
+            transition: opacity 0.1s;
+        }
+        /* effet d'agrandissement */
+        image-link {
+            transition: transform 0.2s; /* transition de 0.2 seconde sur la propriété "transform" */
+        }
+
+        .image-link:hover {
+            transform: scale(1.1); /* Agrandit l'image de 10% lorsqu'elle est survolée */
+        }
+
+    </style>
+    <div class="image-container">
+        <a href="{% url 'stat' %}" class="image-background image-link" style="background-image: url('/static/logoueve.png');">
+            <span class="text-overlay">Statistiques Université</span>
+        </a>
+        <a href="{% url 'contact' %}" class="image-background image-link" style="background-image: url('/static/mage.jpg');">
+            <span class="text-overlay">Accès Administration</span>
+        </a>
+        <a href="{% url 'RNA' %}" class="image-background image-link" style="background-image: url('/static/univ.jpg');">
+            <span class="text-overlay">Accès Responsable de Filière</span>
+        </a>
+    </div>
+{% endblock %}
+
+
+
+
+

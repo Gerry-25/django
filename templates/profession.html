@@ -1,0 +1,36 @@
+
+{% extends 'template_base.html' %}
+
+{% block Titre %} Statistiques profession {% endblock %}
+{% load static %}
+
+
+{% block contenu %}
+
+
+    <h1>Pourcentage de RNA par catégorie socio-professionnelle des parents en 2022
+        <div style="display: flex; align-items: center;">
+        
+          
+            <figure style="margin-right: 20px;">
+                <img src="{% static 'hist_pro.png' %}" alt="Description de l'image" class="image-hover">
+                
+                
+                <!-- <figcaption style="font-weight: bold;">Pourcentage de Redoublant-Admis de 2012 à 2022</figcaption> -->
+            </figure>
+            
+    </h1>
+    <h1>Evolution du pourcentage de RNA par catégorie socio-professionnelle des parents
+        <div style="display: flex; align-items: center;">
+        
+          
+            <figure style="margin-right: 20px;">
+
+                <img src="{% static 'courbe_profession1.png' %}" alt="Description de l'image" class="image-hover">
+                
+                <!-- <figcaption style="font-weight: bold;">Pourcentage de Redoublant-Admis de 2012 à 2022</figcaption> -->
+            </figure>
+            
+    </h1>
+
+{% endblock %}

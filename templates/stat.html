@@ -1,0 +1,172 @@
+{% extends 'template_base.html' %}
+{% load static %}
+
+{% block Titre %} Quelques Statistiques sur les RNA {% endblock %}
+
+{% block contenu %}
+    <style>
+       
+    .image-hover {
+        transition: transform 0.2s; /*transition de 0.2 secondes pour une animation fluide */
+    }
+
+/* Styles pour agrandir légèrement l'image lors du survol */
+    .image-hover:hover {
+        transform: scale(1.2); /* Agrandit l'image de 20% lorsqu'elle est survolée */
+    }
+    .image-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .image-container figure {
+        margin-right: 20px;
+    }
+
+    .image-container a {
+        text-decoration: none;
+    }
+    .second-row {
+        display: flex;
+        align-items: center;
+        margin-top: 20px; /* Espace entre les deux rangées d'images */
+    }
+
+    .second-row figure {
+        margin-right: 20px;
+    }
+    .third-row {
+        display: flex;
+        align-items: center;
+        margin-top: 20px; /* Espace entre les deux rangées d'images */
+    }
+
+    .third-row figure {
+        margin-right: 20px;
+    }
+    .four-row {
+        display: flex;
+        align-items: center;
+        margin-top: 20px; /* Espace entre les deux rangées d'images */
+    }
+
+    .four-row figure {
+        margin-right: 20px;
+    }
+    </style>
+    <h1>
+        De 2012 à Aujourd'hui
+    </h1>
+    <div style="display: flex; align-items: center;">
+        
+        
+        <figure style="margin-right: 20px;">
+            <img src="{% static 'dia_admis.png' %}" alt="Description de l'image"  width="250" height="200" class="image-hover">
+            <figcaption style="font-weight: bold;">Pourcentage de Redoublant-Admis de 2012 à 2022</figcaption>
+        </figure>
+        
+        <div style="width: 100px; text-align: center;">
+            <svg height="10" width="100">
+                <line x1="0" y1="5" x2="75" y2="5" style="stroke:black;stroke-width:2" />
+                <polygon points="75,3 85,5 75,7" fill="black" />
+            </svg>
+        </div>
+
+        
+        <figure style="margin-left: 20px; margin-right: 20px;">
+            <img src="{% static 'pourcentage_réinscription.png' %}" alt="Description de l'image"  width="380" height="200" class="image-hover">
+            <figcaption style="font-weight: bold;">Pourcentage de Redoublant s'étant réinscrit dans la même filière de 2012 à 2022</figcaption>
+        </figure>
+
+        <div style="width: 100px; text-align: center;">
+            <svg height="10" width="100">
+                <line x1="0" y1="5" x2="75" y2="5" style="stroke:black;stroke-width:2" />
+                <polygon points="75,3 85,5 75,7" fill="black" />
+            </svg>
+        </div>
+
+        
+        <figure style="margin-left: 20px;">
+            <img src="{% static 'dia_RNA.png' %}" alt="Description de l'image"  width="250" height="200" class="image-hover">
+            <figcaption style="font-weight: bold;">Pourcentage de RNA de 2012 à 2022</figcaption>
+        </figure>
+    </div>
+    <h1>
+        Evolution basée sur la typologie
+    </h1>
+    <div class="image-container">
+        <figure>
+            <a href="{% url 'profession' %}">
+                <img src="{% static 'prof.png' %}" alt="Description de l'image" width="250" height="200" class="image-hover">
+            </a>
+            <figcaption style="font-weight: bold;margin-left: 50px;">Profession du premier parent</figcaption>
+        </figure>
+    
+        <figure>
+            <a href="{% url 'sexe' %}">
+                <img src="{% static 'sexe.jpg' %}" alt="Description de l'image" width="250" height="200" class="image-hover">
+            </a>
+            <figcaption style="font-weight: bold;margin-left: 140px;">Sexe</figcaption>
+        </figure>
+    
+        <figure>
+            <a href="{% url 'bac' %}">
+                <img src="{% static 'bac.jpeg' %}" alt="Description de l'image" width="250" height="200" class="image-hover">
+            </a>
+            <figcaption style="font-weight: bold;margin-left: 120px;">Groupe de bac</figcaption>
+        </figure>
+    </div>
+    
+    <div class="second-row">
+        <figure>
+            <a href="{% url 'boursier' %}">
+                <img src="{% static 'crous.png' %}" alt="Description de l'image" width="250" height="200" class="image-hover">
+            </a>
+            <figcaption style="font-weight: bold;margin-left: 90px;">Statut de boursier ou non</figcaption>
+        </figure>
+    
+        <figure>
+            <a href="{% url 'ville' %}">
+                <img src="{% static 'tr.jpg' %}" alt="Description de l'image" width="250" height="200" class="image-hover">
+            </a>
+            <figcaption style="font-weight: bold;margin-left: 50px;">Ville de résidence de l'étudiant</figcaption>
+        </figure>
+        <figure>
+            <a href="{% url 'oui_si' %}">
+                <img src="{% static 'oui.jpg' %}" alt="Description de l'image" width="250" height="200" class="image-hover">
+            </a>
+            <figcaption style="font-weight: bold;margin-left: 100px;">Etudiant Oui ou Oui si</figcaption>
+        </figure>
+    </div>
+    <div class="third-row">
+        <figure>
+            <a href="{% url 'regime' %}">
+                <img src="{% static 'regime.jpg' %}" alt="Description de l'image" width="250" height="200" class="image-hover">
+            </a>
+            <figcaption style="font-weight: bold;margin-left: 50px;">Régime d'inscription de l'Etudiant</figcaption>
+        </figure>
+    
+        <figure>
+            <a href="{% url 'diplome' %}">
+                <img src="{% static 'logo.jpg' %}" alt="Description de l'image" width="250" height="200" class="image-hover">
+            </a>
+            <figcaption style="font-weight: bold;margin-left: 50px;">Diplôme préparé (Evry ou Saclay)</figcaption>
+        </figure>
+        <figure>
+            <a href="{% url 'nationalite' %}">
+                <img src="{% static 'france.jpeg' %}" alt="Description de l'image" width="250" height="200" class="image-hover">
+            </a>
+            <figcaption style="font-weight: bold;margin-left: 30px;">Etudiant de nationalité francaise ou non</figcaption>
+        </figure>
+    </div>
+    <div class="four-row">
+        <figure>
+            <a href="{% url 'Mention' %}">
+                <img src="{% static 'ment.jpg' %}" alt="Description de l'image" width="250" height="200" class="image-hover">
+            </a>
+            <figcaption style="font-weight: bold;margin-left: 120px;">Mention au bac</figcaption>
+        </figure>
+    
+        
+    </div>
+{% endblock %}

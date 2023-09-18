@@ -1,0 +1,72 @@
+/* Styles pour le tableau avec bordures */
+.table-bordered {
+    border-collapse: collapse; /* Fusionner les bordures adjacentes */
+    width: 100%; /* Largeur du tableau (ajustez selon vos besoins) */
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid black; /* Bordure de 1 pixel solide en noir */
+    padding: 8px; /* Espacement interne pour les cellules (ajustez selon vos besoins) */
+    text-align: left; /* Alignement du texte (ajustez selon vos besoins) */
+}
+
+/* Autres styles CSS pour votre page */
+body {
+    background-color: red; /* Fond rouge (modifiable selon vos besoins) */
+}
+
+.confirmation-hidden {
+    display: none; /* Style pour les éléments cachés (modifiable selon vos besoins) */
+}
+
+.confirmation-hidden {
+    display: none;
+}
+
+/* Styles de base pour les onglets */
+.tab {
+    text-decoration: none; /* Supprimer le soulignement par défaut */
+    padding: 10px 20px;
+    display: inline-block;
+    margin-right: 10px; /* Espacement entre les onglets */
+    background-color: #007BFF;
+    color: #FFFFFF;
+    border: 1px solid #007BFF;
+    border-radius: 5px; /* Coins arrondis */
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+/* Style pour les onglets actifs (optionnel) */
+.tab.active {
+    background-color: #FFA500; /* Couleur différente pour l'onglet actif */
+}
+.image-with-text {
+    position: relative;
+    display: inline-block;
+}
+
+.image-with-text img {
+    display: block;
+    width: 400px;
+    height: 300px;
+}
+
+.image-with-text .text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Couleur de fond avec une opacité de 50% */
+    color: #fff; /* Couleur du texte */
+    text-align: center;
+    padding: 20px; /* Espacement du texte par rapport à l'image */
+    opacity: 0; /* Le texte est initialement invisible */
+    transition: opacity 0.3s; /* Animation de transition en douceur */
+}
+
+.image-with-text:hover .text-overlay {
+    opacity: 1; /* Le texte devient visible au survol */
+}

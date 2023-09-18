@@ -1,0 +1,28 @@
+{% extends 'template_base.html' %}
+
+{% block Titre %} Statistiques selon le diplôme {% endblock %}
+{% load static %}
+
+
+{% block contenu %}
+
+
+    <h1>Pourcentage de RNA en fonction du diplôme préparé (UEVE ou Saclay) en 2022
+    </h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Nom d'utilisateur :</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Connexion</button>
+    </form>
+
+    {% if error_message %}
+    <p>{{ error_message }}</p>
+    {% endif %}
+    
+
+{% endblock %}

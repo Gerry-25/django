@@ -1,0 +1,40 @@
+.table-bordered {
+    border: 1px solid black !important;
+}
+
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid black !important;
+}
+body{
+    background-color:red ;
+}
+/* Autres styles CSS pour votre page */
+body {
+    background-color: red; /* Fond rouge (modifiable selon vos besoins) */
+}
+
+.confirmation-hidden {
+    display: none; /* Style pour les éléments cachés (modifiable selon vos besoins) */
+}
+
+.confirmation-hidden {
+    display: none;
+}
+
+/* Styles pour les onglets */
+.tab {
+    background-color: #007BFF; /* Couleur de fond */
+    color: #FFFFFF; /* Couleur du texte */
+    padding: 10px 20px; /* Espacement intérieur */
+    border: 1px solid #007BFF; /* Bordure */
+    text-decoration: none; /* Supprimer la décoration du texte (pour les liens) */
+    font-size: 16px; /* Taille de la police */
+    font-weight: bold; /* Épaisseur de la police */
+}
+
+/* Style pour les onglets actifs (si besoin) */
+.tab.active {
+    background-color: #FFA500; /* Couleur de fond différente pour l'onglet actif */
+}

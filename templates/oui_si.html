@@ -1,0 +1,29 @@
+{% extends 'template_base.html' %}
+
+{% block Titre %} Statistiques OUI OUI SI {% endblock %}
+{% load static %}
+
+
+{% block contenu %}
+
+
+    <h1>Pourcentage de RNA en fonction du statut oui ou oui_si de l'étudiant en 2022
+        <div style="display: flex; align-items: center;">
+        
+          
+            <figure style="margin-right: 20px;">
+                <img src="{% static 'hist_oui.png' %}" alt="Description de l'image" class="image-hover">
+                <!-- <figcaption style="font-weight: bold;">Pourcentage de Redoublant-Admis de 2012 à 2022</figcaption> -->
+            </figure>
+    </h1>
+    <h1>Evolution du pourcentage de RNA en fonction du statut oui ou oui_si de l'étudiant
+        <div style="display: flex; align-items: center;">
+        
+          
+            <figure style="margin-right: 20px;">
+                <img src="{% static 'courbe_oui_si.png' %}" alt="Description de l'image" class="image-hover">
+                <!-- <figcaption style="font-weight: bold;">Pourcentage de Redoublant-Admis de 2012 à 2022</figcaption> -->
+            </figure>
+    </h1>
+
+{% endblock %}

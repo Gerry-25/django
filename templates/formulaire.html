@@ -1,0 +1,90 @@
+
+{% extends 'template_base.html' %}
+
+{% block Titre %} Page d'ajout de données {% endblock %}
+
+
+
+{% block contenu %}
+    <h1>Formulaire</h1>
+    <form id="mon_formulaire">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Soumettre les nouvelles données</button>
+    </form>
+
+    <table id="donnees_formulaire" class="table-bordered">
+        <thead>
+            <tr>
+                <th style = "border: 1px solid black !important">Nationalité</th>
+                <th style = "border: 1px solid black !important">Filière</th>
+                <th style = "border: 1px solid black !important">Identifiant</th>
+                <th style = "border: 1px solid black !important">Age bac</th>
+                <th style = "border: 1px solid black !important">Suppression</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in saved_data %}
+            <tr id="ligne_{{ forloop.counter0 }}">
+                <td style = "border: 1px solid black !important">{{ data.Nationalité }}</td>
+                <td style = "border: 1px solid black !important">{{ data.Filière }}</td>
+                <td style = "border: 1px solid black !important">{{ data.Identifiant }}</td>
+                <td style = "border: 1px solid black !important">{{ data.Age_bac }}</td>
+                <td style = "border: 1px solid black !important"><button class="supprimer" data-id="{{ forloop.counter0 }}">Supprimer</button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const formulaire = document.getElementById("mon_formulaire");
+            const tableau = document.getElementById("donnees_formulaire").getElementsByTagName('tbody')[0];
+            let index = 0; // Indice initial pour les boutons de suppression
+    
+            formulaire.addEventListener("submit", function(event) {
+                event.preventDefault();
+    
+                const nationalite = document.getElementById("id_Nationalité").value;
+                const filiere = document.getElementById("id_Filière").value;
+                const identifiant = document.getElementById("id_Identifiant").value;
+                const ageBac = document.getElementById("id_Age_bac").value;
+    
+                const newRow = tableau.insertRow();
+                const cell1 = newRow.insertCell(0);
+                const cell2 = newRow.insertCell(1);
+                const cell3 = newRow.insertCell(2);
+                const cell4 = newRow.insertCell(3);
+                const cell5 = newRow.insertCell(4);
+    
+                cell1.innerHTML = nationalite;
+                cell2.innerHTML = filiere;
+                cell3.innerHTML = identifiant;
+                cell4.innerHTML = ageBac;
+    
+                cell5.innerHTML = `<button class="supprimer" data-index="${index}">Supprimer</button>`;
+                index++; // Incrémentation de l'indice
+    
+                formulaire.reset();
+            });
+    
+            // Ajout des gestionnaires d'événements aux boutons Supprimer
+            tableau.addEventListener("click", function(event) {
+                if (event.target && event.target.className == "supprimer") {
+                    const indexToRemove = parseInt(event.target.getAttribute("data-index"));
+                    tableau.deleteRow(indexToRemove); // Suppression de la ligne du tableau
+                    index--; // Décrémentation de l'indice
+    
+                    const boutonsSupprimer = tableau.querySelectorAll(".supprimer");
+                    boutonsSupprimer.forEach(function(bouton, i) {
+                        bouton.setAttribute("data-index", i);
+                    });
+                }
+            });
+        });
+    </script>
+    
+    
+    
+    
+    
+{% endblock %}

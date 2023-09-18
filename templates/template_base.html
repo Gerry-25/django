@@ -1,0 +1,89 @@
+{% block stylesheets %}
+<style>
+    a {
+        text-decoration: none; /* Suppression du soulignement par défaut */
+        padding: 20px 40px; /* Augmentation de la taille des liens */
+        display: inline-block;
+        margin-right: 30px; /* Espacement entre les onglets */
+        
+        background-size: cover;
+        color: #00529100; /* Couleur du texte */
+        border: none; /* Aucune bordure */
+        border-radius: 5px; /* Coins arrondis */
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+    }
+    .nav-link {
+        font-size: 48px; /* Taille du texte des liens en pixels */
+    }
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Déplace l'image complètement à gauche */
+        background-color: #000000; /* Fond noir */
+        padding: 10px; 
+    }
+    .nav-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .nav-link {
+        display: inline-block;
+        margin-right: 40px;
+    }
+    .nav-image img {
+        max-height: 200px; /* hauteur de l'image  */
+        border: none;
+    }
+    /* Style spécifique pour le lien "Accueil" */
+    .nav-link-home a {
+        color: white; /* Texte en blanc */
+        margin-left: 200px;
+    }
+</style>
+{% endblock %}
+
+
+{% load static %}
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block Titre %} {% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body style="font-family: 'Roboto', 'sans-serif';">
+    <div class="nav-container">
+        <div class="nav-image">
+            <img src="{% static 'logo2.png' %}" alt="Image">
+        </div>
+        <ul class="nav-links">
+            <li class="nav-link nav-link-home"> <!-- Ajoutez la classe nav-link-home ici -->
+                <a href="{% url 'home' %}" class="tab">Accueil</a>
+            </li>
+            <!-- <li class="nav-link">
+                <a href="{% url 'RNA' %}" class="tab">RNA</a>
+            </li> -->
+            <!-- <li class="nav-link">
+                <a href="{% url 'formulaire' %}" class="tab">Données Supplémentaires</a>
+            </li> -->
+            {% if formulaire_rempli %}
+            <li class="nav-link">
+                <a href="{% url 'confirmation' %}" class="tab">Confirmation</a>
+            </li>
+            li class="nav-link">
+                <a href="{% url 'stat' %}" class="tab">Statistiques</a>
+            </li>
+            {% endif %}
+        </ul>
+        
+    </div>
+
+    {% block contenu %} {% endblock %}
+</body>
+
+</html>
